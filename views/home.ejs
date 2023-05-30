@@ -1,0 +1,38 @@
+<%- include("partials/header"); -%>
+<div class="container">
+    <div class="btn-div">
+        <a href="/adduser" class="btn btn-success btn-md"><i class="bi bi-person-fill-add"></i> Add User</a>    
+    </div>
+    <div class="outer-wrapper">
+        <div class="table-wrapper">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(function(user){ %>
+                        <tr>
+                            <td><%= user.id %></td>
+                            <td><%= user.name %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.gender %></td>
+                            <td><%= user.status %></td>
+                            <td>
+                                <a class="btn btn-primary mx-2" href="/userupdate/<%= user._id %>"><i class="bi bi-pencil-square"></i></a>
+                                <a class="btn btn-danger" href="/userdelete/<%= user._id %>"><i class="bi bi-trash-fill"></i></a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include("partials/footer"); -%>

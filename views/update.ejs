@@ -1,0 +1,46 @@
+<%- include("partials/header"); -%>
+<div class="container">
+    <div class="form-div">
+        <div class="header">
+            <h3>Update User</h3>
+            <p>Use the below form to update an user</p>
+        </div>
+        <form class="user-form" action="/update" method="post">
+            <div class="mb-3">
+                <label for="exampleInputName1" class="form-label">Enter Name</label>
+                <input type="hidden" name="id" value="<%= user.id%>">
+                <input type="hidden" name="_id" value="<%= user._id%>">
+                <input type="text" class="form-control" name="name" value="<%= user.name %>" >
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" name="email" value="<%= user.email %>" >
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <label class="form-label"></label>Gender</label>
+            <div class="mb-3 form-check">  
+              <div class="rbtn">
+                <input type="radio" class="form-check-input" name="gender" value="Male" <%= user.gender == 'Male' ? 'checked' : '' %>>
+                <label class="form-check-label" for="exampleCheck1">Male</label>
+              </div>
+              <div>
+                <input type="radio" class="form-check-input" name="gender" value="Female" <%= user.gender == 'Female' ? 'checked':'' %>>
+                <label class="form-check-label" for="exampleCheck1">Female</label>
+              </div>
+            </div>
+            <label class="form-label"></label>Status</label>
+            <div class="mb-3 form-check">  
+                <div class="rbtn">
+                  <input type="radio" class="form-check-input" name="status" value="Active" <%= user.status == 'Active' ? 'checked':'' %>>
+                  <label class="form-check-label" for="exampleCheck1">Active</label>
+                </div>
+                <div>
+                  <input type="radio" class="form-check-input" name="status" value="Inactive" <%= user.status == 'Inactive' ? 'checked': '' %>>
+                  <label class="form-check-label" for="exampleCheck1">Inactive</label>
+                </div>
+              </div>
+            <button type="submit" class="btn btn-success ubtn mt-3">Submit</button>
+          </form>
+    </div>
+</div>
+<%- include("partials/footer"); -%>
